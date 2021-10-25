@@ -24,5 +24,6 @@ int main()
 		i++;
 	}
 	ft_print_array(buff, (const int)size);
+	delete buff;
 	return (0);
 }

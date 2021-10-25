@@ -36,5 +36,6 @@ int main()
 	ft_print_array(buff, (const int)size);
 	count = ft_count_even(buff, (const int)size);
 	std::cout << "\n" << count;
+	delete buff;
 	return (0);
 }
