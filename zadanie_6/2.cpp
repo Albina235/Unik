@@ -4,32 +4,8 @@
 # define I_2 2
 # define J_2 2
 
-void    ft_print_array(int **arr, int si, int sj)
-{
-    for(int i = 0; i < si; ++i)
-    {
-        for(int j = 0; j < sj; ++j)
-        {
-            std::cout.width(3);
-            std::cout << arr[i][j];
-        }
-        std::cout << "\n";
-    }
-    std::cout << "\n";
-}
-
-void    ft_cinarray(int **arr, int si, int sj)
-{
-    int i = -1;
-    int j = -1;
-
-    while (++i < si)
-    {
-        while (++j < sj)
-            std::cin >> arr[i][j];
-        j = -1;
-    }
-}
+void    ft_print_array(int **arr, int si, int sj);
+void    ft_cinarray(int **arr, int si, int sj);
 
 int **ft_multiplication(int **arr1, int **arr2)
 {
