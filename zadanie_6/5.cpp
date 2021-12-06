@@ -1,7 +1,8 @@
 #include <iostream>
 
-void    ft_print_array(int **arr, int si, int sj);
-void    ft_cinarray(int **arr, int si, int sj);
+void    ft_print_two_d_array(int **arr, int size_i, int size_j);
+void    ft_cinarray(int **arr, int size_i, int size_j);
+void    ft_delete(int **arr, int si);
 
 int ft_find_max(int **arr, int ni, int sj)
 {
@@ -53,7 +54,7 @@ int **ft_create_arr(const int i, const int j)
     while (++si < i)
         arr[si] = new int[j];
     ft_cinarray(arr, i, j);
-    ft_print_array(arr, i, j);
+    ft_print_two_d_array(arr, i, j);
     ft_replace_min(arr, i, j);
     return (arr);
 }
@@ -67,6 +68,9 @@ int main()
     std::cout << "Number of rows and columns: ";
     std::cin >> i >> j;
     std::cout << "\n";
-    arr = ft_create_arr((const)i, (const)j);
-    ft_print_array(arr, i, j);
+    arr = ft_create_arr((const int)i, (const int)j);
+    ft_print_two_d_array(arr, i, j);
+    int si = -1;
+    ft_delete(arr, i);
+    return (0);
 }

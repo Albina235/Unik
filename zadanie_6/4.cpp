@@ -1,18 +1,25 @@
 #include <iostream>
 
-void    ft_print_array(int **arr, int si, int sj);
-void    ft_cinarray(int **arr, int si, int sj);
+void    ft_print_two_d_array(int **arr, int size_i, int size_j);
+void    ft_cinarray(int **arr, int size_i, int size_j);
+void    ft_delete(int **arr, int si);
 
 void    ft_replace(int **arr, int mini, int minj, int n)
 {
     int i = -1;
-    int tmp;
+    int i_s[n];
+    int j_s[n];
 
     while (++i < n)
     {
-            tmp = arr[i][minj];
-            arr[i][minj] = arr[mini][i];
-            arr[mini][i] = tmp;
+        i_s[i] = arr[mini][i];
+        j_s[i] = arr[i][minj];
+    }
+    i = -1;
+    while (++i < n)
+    {
+        arr[mini][i] = j_s[i];
+        arr[i][minj] = i_s[i];
     }
 }
 
@@ -44,12 +51,11 @@ int **ft_create_arr(const int n)
 {
     int i = -1;
     int **arr = new int *[n];
-    int **tmp;
 
     while (++i < n)
         arr[i] = new int[n];
     ft_cinarray(arr, n, n);
-    ft_print_array(arr, n, n);
+    ft_print_two_d_array(arr, n, n);
     ft_find_min(arr, n);
     return (arr);
 }
@@ -62,8 +68,8 @@ int main()
     std::cout << "Number of rows and columns: ";
     std::cin >> n;
 
-    arr = ft_create_arr((const)n);
-    ft_print_array(arr, n, n);
+    arr = ft_create_arr((const int)n);
+    ft_print_two_d_array(arr, n, n);
     int i = -1;
     while (++i < n)
         delete (arr[i]);

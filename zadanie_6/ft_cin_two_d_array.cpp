@@ -1,14 +1,16 @@
 #include <iostream>
 
-void    ft_cinarray(int **arr, int si, int sj)
+void    ft_cinarray(int **arr, int size_i, int size_j)
 {
     int i = -1;
     int j = -1;
 
-    while (++i < si)
+    while (++i < size_i)
     {
-        while (++j < sj)
+        while (++j < size_j)
             std::cin >> arr[i][j];
         j = -1;
+        std::cout << "\n";
     }
+    std::cout << "\n";
 }
